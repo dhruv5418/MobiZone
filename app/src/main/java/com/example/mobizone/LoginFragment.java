@@ -40,6 +40,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         txt_forgot=view.findViewById(R.id.txt_forgot);
         txt_reg.setOnClickListener(this);
         btn_log.setOnClickListener(this);
+        txt_forgot.setOnClickListener(this);
     }
 
     @Override
