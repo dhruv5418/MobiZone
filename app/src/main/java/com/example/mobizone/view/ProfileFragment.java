@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.mobizone.OrderhistoryActivity;
 import com.example.mobizone.R;
 
 
@@ -61,8 +62,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             case R.id.rel_pro: intent=new Intent(getActivity().getApplicationContext(),ProfileActivity.class);
                                 startActivity(intent);
                                 break;
-            case R.id.rel_orderHistory: //intent=new Intent(getActivity().getApplicationContext(),ProfileActivity.class);
-                                         //startActivity(intent);
+            case R.id.rel_orderHistory: intent=new Intent(getActivity().getApplicationContext(), OrderhistoryActivity.class);
+                                         startActivity(intent);
                                          break;
             case R.id.rel_feedBack: intent=new Intent(getActivity().getApplicationContext(),FeedbackActivity.class);
                                     startActivity(intent);
