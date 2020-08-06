@@ -8,11 +8,11 @@
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:id="@+id/toolbar_profile"
+        android:id="@+id/toolbar_settings"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/White"
         android:elevation="4dp"
-        app:title="Profile"
+        app:title="Settings"
         app:layout_constraintTop_toTopOf="parent"
         app:titleTextColor="@color/orenge_button"/>
     <include
@@ -20,7 +20,7 @@
         android:layout_width="116dp"
         android:layout_height="116dp"
         android:id="@+id/img_p"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_profile"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_settings"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="5dp"
