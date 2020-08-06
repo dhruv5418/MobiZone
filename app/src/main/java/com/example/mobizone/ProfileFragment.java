@@ -1,58 +1,47 @@
 package com.example.mobizone;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ProfileFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class ProfileFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class ProfileFragment extends Fragment implements View.OnClickListener {
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    RelativeLayout rel_pro,rel_pass,rel_signout,rel_feed,rel_order;
     public ProfileFragment() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ProfileFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ProfileFragment newInstance(String param1, String param2) {
-        ProfileFragment fragment = new ProfileFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        rel_feed=view.findViewById(R.id.rel_feedBack);
+        rel_pro=view.findViewById(R.id.rel_pro);
+        rel_pass=view.findViewById(R.id.rel_changePass);
+        rel_order=view.findViewById(R.id.rel_orderHistory);
+        rel_signout=view.findViewById(R.id.rel_signOut);
+        rel_feed.setOnClickListener(this);
+        rel_pro.setOnClickListener(this);
+        rel_order.setOnClickListener(this);
+        rel_signout.setOnClickListener(this);
+        rel_pass.setOnClickListener(this);
     }
 
     @Override
@@ -60,5 +49,30 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent;
+        NavController navController;
+        switch (v.getId()){
+
+            case R.id.rel_pro: intent=new Intent(getActivity().getApplicationContext(),ProfileActivity.class);
+                                startActivity(intent);
+                                break;
+            case R.id.rel_orderHistory: //intent=new Intent(getActivity().getApplicationContext(),ProfileActivity.class);
+                                         //startActivity(intent);
+                                         break;
+            case R.id.rel_feedBack: intent=new Intent(getActivity().getApplicationContext(),FeedbackActivity.class);
+                                    startActivity(intent);
+                                    break;
+            case R.id.rel_signOut: intent = new Intent(getActivity().getApplicationContext(), MainActivity.class);
+                                        startActivity(intent);
+                                        break;
+            case R.id.rel_changePass: navController= Navigation.findNavController(getActivity(),R.id.nav_host_login);
+                                        navController.navigate(R.id.forgotpassFragment);
+                                        break;
+
+        }
     }
 }
