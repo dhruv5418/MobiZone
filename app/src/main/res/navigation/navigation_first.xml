@@ -20,4 +20,9 @@
         android:name="com.example.mobizone.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/forgotpassFragment"
+        android:name="com.example.mobizone.ForgotpassFragment"
+        android:label="fragment_forgotpass"
+        tools:layout="@layout/fragment_forgotpass" />
 </navigation>
