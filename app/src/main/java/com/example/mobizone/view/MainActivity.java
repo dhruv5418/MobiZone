@@ -1,14 +1,16 @@
-package com.example.mobizone;
+package com.example.mobizone.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class PaymentActivity extends AppCompatActivity {
+import com.example.mobizone.R;
+
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_payment);
+        setContentView(R.layout.activity_main);
     }
 }

@@ -1,8 +1,10 @@
-package com.example.mobizone;
+package com.example.mobizone.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.mobizone.R;
 
 public class ProductdetailsActivity extends AppCompatActivity {
 

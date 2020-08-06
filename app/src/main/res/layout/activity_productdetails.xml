@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProductdetailsActivity"
+    tools:context=".view.ProductdetailsActivity"
     android:background="@drawable/bg">
 
 
@@ -167,9 +167,9 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="150dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="66dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
         android:transitionName="image"

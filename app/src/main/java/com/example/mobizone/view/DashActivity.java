@@ -1,4 +1,4 @@
-package com.example.mobizone;
+package com.example.mobizone.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import androidx.navigation.Navigation;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.mobizone.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DashActivity extends AppCompatActivity {

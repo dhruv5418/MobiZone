@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.mobizone.SplashFragment"
+        android:name="com.example.mobizone.view.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.mobizone.LoginFragment"
+        android:name="com.example.mobizone.view.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.mobizone.RegisterFragment"
+        android:name="com.example.mobizone.view.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" />
     <fragment
         android:id="@+id/forgotpassFragment"
-        android:name="com.example.mobizone.ForgotpassFragment"
+        android:name="com.example.mobizone.view.ForgotpassFragment"
         android:label="fragment_forgotpass"
         tools:layout="@layout/fragment_forgotpass" />
 </navigation>

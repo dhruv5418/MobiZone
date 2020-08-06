@@ -1,6 +1,5 @@
-package com.example.mobizone;
+package com.example.mobizone.view;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -8,12 +7,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import com.example.mobizone.R;
 
 
 public class ProfileFragment extends Fragment implements View.OnClickListener {
@@ -69,8 +70,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             case R.id.rel_signOut: intent = new Intent(getActivity().getApplicationContext(), MainActivity.class);
                                         startActivity(intent);
                                         break;
-            case R.id.rel_changePass: navController= Navigation.findNavController(getActivity(),R.id.nav_host_login);
-                                        navController.navigate(R.id.forgotpassFragment);
+            case R.id.rel_changePass:
+                                        Toast.makeText(getActivity().getApplicationContext(), "Password reset link send successfully!", Toast.LENGTH_LONG).show();
                                         break;
 
         }
