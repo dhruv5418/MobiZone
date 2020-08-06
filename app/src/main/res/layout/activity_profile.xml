@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/lbl_fName"
         app:layout_constraintStart_toStartOf="@id/lbl_fName"
         android:textSize="20sp"
-        android:text="First Name"
+        android:text="Dhruv"
         />
 
     <TextView
@@ -64,7 +64,7 @@
         app:layout_constraintTop_toBottomOf="@+id/lbl_lName"
         app:layout_constraintStart_toStartOf="@id/lbl_lName"
         android:textSize="20sp"
-        android:text="Last Name"
+        android:text="Patel"
         />
 
     <TextView
@@ -85,7 +85,7 @@
         app:layout_constraintTop_toBottomOf="@+id/lbl_email"
         app:layout_constraintStart_toStartOf="parent"
         android:textSize="20sp"
-        android:text="Email"
+        android:text="dhruvj5418@gmail.com"
         android:textColor="@color/Black"
         android:paddingStart="35dp"
         />

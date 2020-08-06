@@ -1,6 +1,7 @@
 package com.example.mobizone.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -17,12 +18,20 @@ public class FeedbackActivity extends AppCompatActivity {
     Button btn_send;
     EditText txt_message;
     String message;
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
         btn_send=findViewById(R.id.btn_feedBack);
         txt_message=findViewById(R.id.edt_feedBack);
+        toolbar=findViewById(R.id.toolbar_feedback);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
