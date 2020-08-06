@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="25dp"
             android:text="Name"
             android:textColor="@color/orenge_button"
             android:textSize="18sp" />
@@ -81,6 +81,23 @@
 
         <EditText
             android:id="@+id/aptId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:inputType="text" />
+        <TextView
+            android:id="@+id/mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="Mobile No"
+            android:textColor="@color/orenge_button"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/mobileId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
