@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductdetailsActivity"
+    android:background="@drawable/bg">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_back"
+        />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="500dp"
+        android:background="@drawable/detail_page_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/ic_cat_bg"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:text="Apple"
+            android:textColor="@android:color/background_dark"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/ic_cat_bg"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:text="Ios"
+            android:textColor="@android:color/background_dark"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintStart_toEndOf="@+id/textView7"
+            app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Iphone 11Pro Max "
+            android:textColor="@android:color/background_dark"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/textView12"
+            app:layout_constraintStart_toStartOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="$ 1100.00"
+            android:textColor="#42995C"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView11"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView11" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto"
+            android:lineSpacingExtra="2dp"
+            android:text="We custom‐built A13 Bionic with a focus on machine learning across the entire chip — enabling experiences that simply aren’t found on any other smartphone. In fact, it’s so fast, so powerful, and so intelligent, it’s years ahead of any other chip. Which gives you an unfair advantage. Meet the first triple-camera system to combine cutting-edge technology with the legendary simplicity of iPhone. Capture up to four times more scene. Get beautiful images in drastically lower light."
+            android:textColor="@android:color/background_dark"
+            android:isScrollContainer="true"
+            app:layout_constraintEnd_toEndOf="@+id/textView12"
+            app:layout_constraintStart_toStartOf="@+id/textView11"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <TextView
+            android:id="@+id/txt_qun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Quantity"
+            android:textColor="@color/orenge_button"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/textView13"
+            app:layout_constraintTop_toTopOf="@+id/button2" />
+
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toEndOf="@+id/txt_qun"
+            app:layout_constraintTop_toTopOf="@+id/button2"/>
+
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_style"
+            android:drawableRight="@drawable/ic_arrow_forward_black_24dp"
+            android:fontFamily="@font/roboto_medium"
+            android:padding="16dp"
+            android:paddingRight="16dp"
+            android:text="Add to Cart"
+            android:textAllCaps="false"
+            android:layout_marginBottom="5dp"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_orderNow"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent" />
+        <Button
+            android:id="@+id/btn_orderNow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_style"
+            android:drawableRight="@drawable/ic_arrow_forward_black_24dp"
+            android:fontFamily="@font/roboto_medium"
+            android:padding="16dp"
+            android:paddingRight="16dp"
+            android:text="Order Now"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/spinner"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="150dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:transitionName="image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/prod4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
