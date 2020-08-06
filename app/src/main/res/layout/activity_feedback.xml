@@ -7,7 +7,7 @@
     tools:context=".FeedbackActivity">
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:id="@+id/toolbar_address"
+        android:id="@+id/toolbar_feedback"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/White"
         android:elevation="4dp"
@@ -18,7 +18,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_address"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_feedback"
         android:id="@+id/layout_fed1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
