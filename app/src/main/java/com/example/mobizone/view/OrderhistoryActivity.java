@@ -1,10 +1,12 @@
-package com.example.mobizone;
+package com.example.mobizone.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.mobizone.R;
 
 public class OrderhistoryActivity extends AppCompatActivity {
 
