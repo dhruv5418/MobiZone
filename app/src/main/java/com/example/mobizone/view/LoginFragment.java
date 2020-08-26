@@ -139,4 +139,13 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         startActivity(intent);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        curUser=auth.getCurrentUser();
+        if(curUser!=null){
+            updateUI(curUser);
+            Toast.makeText(getActivity().getApplicationContext(),"User Already Login",Toast.LENGTH_LONG).show();
+        }
+    }
 }

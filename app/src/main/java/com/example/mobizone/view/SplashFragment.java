@@ -13,14 +13,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.mobizone.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class SplashFragment extends Fragment implements View.OnClickListener {
 
     Button btn_reg,btn_log;
     NavController navController;
+    FirebaseAuth auth;
+    FirebaseUser curUser;
     public SplashFragment() {
         // Required empty public constructor
     }
@@ -30,7 +35,7 @@ public class SplashFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        auth=FirebaseAuth.getInstance();
     }
 
     @Override
@@ -62,4 +67,20 @@ public class SplashFragment extends Fragment implements View.OnClickListener {
         }
 
     }
+    @Override
+    public void onStart() {
+        super.onStart();
+        curUser=auth.getCurrentUser();
+        if(curUser!=null){
+            updateUI(curUser);
+            Toast.makeText(getActivity().getApplicationContext(),"User Already Login",Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void updateUI(FirebaseUser fUser){
+        Intent intent = new Intent(getActivity(), DashActivity.class);
+        intent.putExtra("User",fUser);
+        startActivity(intent);
+    }
+
 }
