@@ -27,6 +27,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -40,7 +41,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     String fName,lName,email,pass,cPass;
     NavController navController;
     private FirebaseAuth auth;
-
+    private FirebaseFirestore db;
     public RegisterFragment() {
         // Required empty public constructor
     }
@@ -51,6 +52,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         auth=FirebaseAuth.getInstance();
+        db=FirebaseFirestore.getInstance();
     }
 
     @Override
@@ -77,7 +79,6 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        int id=view.getId();
         switch (view.getId()){
             case R.id.btn_reg:
                 fName=edt_fName.getText().toString();
@@ -168,6 +169,22 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                     edt_email.requestFocus();
                     return;
                 }else{
+                    FirebaseUser user=auth.getCurrentUser();
+
+                    Map<String,Object> usermap=new HashMap<>();
+                    usermap.put("First Name",fName);
+                    usermap.put("Last Name",lName);
+                    usermap.put("Email",email);
+                    db.collection("Users").document(user.getUid()).set(usermap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(getActivity().getApplicationContext(),"Register Success!",Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+                    Intent intent = new Intent(getActivity(), DashActivity.class);
+                    startActivity(intent);
 
                 }
             }
