@@ -15,11 +15,13 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.mobizone.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     RelativeLayout rel_pro,rel_pass,rel_signout,rel_feed,rel_order;
+    FirebaseAuth auth;
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -27,7 +29,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        auth=FirebaseAuth.getInstance();
     }
 
     @Override
@@ -67,9 +69,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             case R.id.rel_feedBack: intent=new Intent(getActivity().getApplicationContext(),FeedbackActivity.class);
                                     startActivity(intent);
                                     break;
-            case R.id.rel_signOut: intent = new Intent(getActivity().getApplicationContext(), MainActivity.class);
-                                        startActivity(intent);
-                                        break;
+            case R.id.rel_signOut: auth.signOut();
+                                   intent = new Intent(getActivity().getApplicationContext(), MainActivity.class);
+                                   startActivity(intent);
+                                   break;
             case R.id.rel_changePass:
                                         Toast.makeText(getActivity().getApplicationContext(), "Password reset link send successfully!", Toast.LENGTH_LONG).show();
                                         break;
