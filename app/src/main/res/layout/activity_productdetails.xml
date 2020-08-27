@@ -39,7 +39,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/txt_company"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -54,7 +54,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/txt_os"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -64,12 +64,12 @@
             android:text="Ios"
             android:textColor="@android:color/background_dark"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView7"
-            app:layout_constraintStart_toEndOf="@+id/textView7"
-            app:layout_constraintTop_toTopOf="@+id/textView7" />
+            app:layout_constraintBottom_toBottomOf="@+id/txt_company"
+            app:layout_constraintStart_toEndOf="@+id/txt_company"
+            app:layout_constraintTop_toTopOf="@+id/txt_company" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/txt_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -79,11 +79,11 @@
             android:textColor="@android:color/background_dark"
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/textView12"
-            app:layout_constraintStart_toStartOf="@+id/textView7"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintStart_toStartOf="@+id/txt_company"
+            app:layout_constraintTop_toBottomOf="@+id/txt_company" />
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/txt_price"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
@@ -91,24 +91,137 @@
             android:text="$ 1100.00"
             android:textColor="#42995C"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView11"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_name"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView11" />
-
+            app:layout_constraintTop_toTopOf="@+id/txt_name" />
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/lbl_memory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/roboto"
             android:lineSpacingExtra="2dp"
-            android:text="We custom‐built A13 Bionic with a focus on machine learning across the entire chip — enabling experiences that simply aren’t found on any other smartphone. In fact, it’s so fast, so powerful, and so intelligent, it’s years ahead of any other chip. Which gives you an unfair advantage. Meet the first triple-camera system to combine cutting-edge technology with the legendary simplicity of iPhone. Capture up to four times more scene. Get beautiful images in drastically lower light."
+            android:text="Memory:- "
             android:textColor="@android:color/background_dark"
             android:isScrollContainer="true"
-            app:layout_constraintEnd_toEndOf="@+id/textView12"
-            app:layout_constraintStart_toStartOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            app:layout_constraintStart_toStartOf="@+id/txt_name"
+            app:layout_constraintTop_toBottomOf="@+id/txt_name" />
 
+        <TextView
+            android:id="@+id/txt_memory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto"
+            android:lineSpacingExtra="2dp"
+            android:text="64GB"
+            android:textColor="@android:color/background_dark"
+            android:isScrollContainer="true"
+            app:layout_constraintStart_toEndOf="@+id/lbl_memory"
+            app:layout_constraintTop_toBottomOf="@+id/txt_name" />
+        <TextView
+            android:id="@+id/lbl_processor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto"
+            android:lineSpacingExtra="2dp"
+            android:text="Processor:- "
+            android:textColor="@android:color/background_dark"
+            android:isScrollContainer="true"
+            app:layout_constraintStart_toStartOf="@+id/lbl_memory"
+            app:layout_constraintTop_toBottomOf="@+id/txt_memory" />
+
+        <TextView
+            android:id="@+id/txt_processor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto"
+            android:lineSpacingExtra="2dp"
+            android:text="A-13"
+            android:textColor="@android:color/background_dark"
+            android:isScrollContainer="true"
+            app:layout_constraintStart_toEndOf="@+id/lbl_processor"
+            app:layout_constraintTop_toBottomOf="@+id/txt_memory" />
+
+        <TextView
+            android:id="@+id/lbl_battery"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto"
+            android:lineSpacingExtra="2dp"
+            android:text="Battery:- "
+            android:textColor="@android:color/background_dark"
+            android:isScrollContainer="true"
+            app:layout_constraintStart_toStartOf="@+id/lbl_processor"
+            app:layout_constraintTop_toBottomOf="@+id/txt_processor" />
+
+        <TextView
+            android:id="@+id/txt_battery"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto"
+            android:lineSpacingExtra="2dp"
+            android:text="3300 MAh"
+            android:textColor="@android:color/background_dark"
+            android:isScrollContainer="true"
+            app:layout_constraintStart_toEndOf="@+id/lbl_battery"
+            app:layout_constraintTop_toBottomOf="@+id/txt_processor" />
+
+        <TextView
+            android:id="@+id/lbl_frntCam"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto"
+            android:lineSpacingExtra="2dp"
+            android:text="Front Camera:- "
+            android:textColor="@android:color/background_dark"
+            android:isScrollContainer="true"
+            app:layout_constraintStart_toStartOf="@+id/lbl_battery"
+            app:layout_constraintTop_toBottomOf="@+id/txt_battery" />
+
+        <TextView
+            android:id="@+id/txt_frntCam"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto"
+            android:lineSpacingExtra="2dp"
+            android:text="12 MP"
+            android:textColor="@android:color/background_dark"
+            android:isScrollContainer="true"
+            app:layout_constraintStart_toEndOf="@+id/lbl_frntCam"
+            app:layout_constraintTop_toBottomOf="@+id/txt_battery" />
+
+        <TextView
+            android:id="@+id/lbl_bckCam"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto"
+            android:lineSpacingExtra="2dp"
+            android:text="Back Camera:- "
+            android:textColor="@android:color/background_dark"
+            android:isScrollContainer="true"
+            app:layout_constraintStart_toStartOf="@+id/lbl_frntCam"
+            app:layout_constraintTop_toBottomOf="@+id/txt_frntCam" />
+
+        <TextView
+            android:id="@+id/txt_bckCam"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto"
+            android:lineSpacingExtra="2dp"
+            android:text="18 MP"
+            android:textColor="@android:color/background_dark"
+            android:isScrollContainer="true"
+            app:layout_constraintStart_toEndOf="@+id/lbl_frntCam"
+            app:layout_constraintTop_toBottomOf="@+id/txt_frntCam" />
         <TextView
             android:id="@+id/txt_qun"
             android:layout_width="wrap_content"
@@ -117,7 +230,7 @@
             android:text="Quantity:-"
             android:textColor="@color/orenge_button"
             android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/textView13"
+            app:layout_constraintStart_toStartOf="@+id/lbl_bckCam"
             app:layout_constraintTop_toTopOf="@+id/btn_addCart" />
 
         <Spinner
@@ -165,7 +278,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/img_prod"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="66dp"
