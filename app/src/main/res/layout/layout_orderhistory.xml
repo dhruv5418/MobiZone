@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/cart_item_img"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/prod" />
+
+    <TextView
+        android:id="@+id/cart_item_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Iphone 11Pro Max"
+        android:textColor="@color/Black"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/cart_item_img"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+    <TextView
+        android:id="@+id/txt_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="1444 rue Mackay"
+        android:textColor="@color/Black"
+        android:layout_marginStart="16dp"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@+id/cart_item_img"
+        app:layout_constraintTop_toBottomOf="@+id/cart_product_quantity"
+        />
+    <TextView
+        android:id="@+id/txt_apt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="#403"
+        android:textColor="@color/Black"
+        android:layout_marginStart="16dp"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@+id/cart_item_img"
+        app:layout_constraintTop_toBottomOf="@+id/txt_add"
+        />
+    <TextView
+        android:id="@+id/txt_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Montreal"
+        android:textColor="@color/Black"
+        android:layout_marginStart="16dp"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@+id/txt_apt"
+        app:layout_constraintTop_toBottomOf="@+id/txt_add"
+        />
+    <TextView
+        android:id="@+id/txt_pin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="H3G2H9"
+        android:textColor="@color/Black"
+        android:layout_marginStart="16dp"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@+id/cart_item_img"
+        app:layout_constraintTop_toBottomOf="@+id/txt_apt"
+        />
+
+    <TextView
+        android:id="@+id/cart_product_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="@color/Black"
+        android:drawablePadding="3dp"
+        android:text="Qty:1"
+        android:textColor="@color/Black"
+        app:layout_constraintStart_toEndOf="@+id/cart_item_img"
+        app:layout_constraintTop_toBottomOf="@+id/cart_item_txt" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/orenge_button"
+        android:gravity="right"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_pin">
+
+        <TextView
+            android:id="@+id/txt_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Total Amount Paid:- 1300 $"
+            android:textAlignment="center"
+            android:textColor="@color/White"
+            android:textStyle="bold"
+            android:textSize="25sp"/>
+
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
