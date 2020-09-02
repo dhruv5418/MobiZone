@@ -3,11 +3,11 @@ package com.example.mobizone.model;
 public class ProductCategory {
 
     Integer productId;
-    String productName;
+    String productCategory;
 
-    public ProductCategory(Integer productId, String productName) {
+    public ProductCategory(Integer productId, String productCategory) {
         this.productId = productId;
-        this.productName = productName;
+        this.productCategory = productCategory;
     }
 
     public Integer getProductId() {
@@ -18,11 +18,11 @@ public class ProductCategory {
         this.productId = productId;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getProductCategory() {
+        return productCategory;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setProductCategory(String productCategory) {
+        this.productCategory = productCategory;
     }
 }

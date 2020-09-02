@@ -279,8 +279,8 @@
 
     <ImageView
         android:id="@+id/img_prod"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="650px"
+        android:layout_height="1150px"
         android:layout_marginTop="66dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
