@@ -60,8 +60,7 @@ public class CartFragment extends Fragment {
     private void generteView() {
 
         List<Cart> cartList = new ArrayList<>();
-        cartList.add(new Cart(1, "Iphone 11 Pro Max 64GB", "1", "$ 1100.00", R.drawable.prod4));
-        cartList.add(new Cart(2, "Iphone 11 Pro Max 128GB", "1", "$ 1300.00", R.drawable.prod4));
+
         setCartItemRecycler(cartList);
     }
 

@@ -40,10 +40,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @Override
     public void onBindViewHolder(@NonNull final ProductViewHolder holder, int position) {
 
-        holder.prodImage.setImageResource(productsList.get(position).getImageUrl());
-        holder.prodName.setText(productsList.get(position).getProductName());
-        holder.prodQty.setText(productsList.get(position).getProductQty());
-        holder.prodPrice.setText(productsList.get(position).getProductPrice());
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
