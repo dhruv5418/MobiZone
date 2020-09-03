@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +62,41 @@ public class HomeFragment extends Fragment {
         productCatRecycler = view.findViewById(R.id.cat_recycler);
         prodItemRecycler = view.findViewById(R.id.product_recycler);
         getCategory();
-       // generteView();
+        getAllProducts();
+    }
+
+    private void getAllProducts() {
+        db.collection("Products")
+                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()){
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        String name= (String) document.getData().get("Name");
+                        String company= (String) document.getData().get("Company");
+                        String memory= (String) document.getData().get("Memory");
+                        String price= (String) document.getData().get("Price");
+                        int id= Integer.parseInt(document.getId());
+                        String image= (String) document.getData().get("image");
+                        String image_detail= (String) document.getData().get("image_detail");
+                        String processor= (String) document.getData().get("Processor");
+                        String battery= (String) document.getData().get("Battery");
+                        String frntCam= (String) document.getData().get("Front Cam");
+                        String bckCam= (String) document.getData().get("Back Cam");
+                        String os=(String) document.getData().get("os");
+                        getItem(id,name,company,memory,price,image,image_detail,processor,battery,frntCam,bckCam,os);
+
+                    }
+
+                }
+            }
+        });
+    }
+    private void getItem(final int id, final String name, final String company, final String memory, final String price, final String image, final String image_detail, final String processor, final String battery, final String frntCam, final String bckCam, final String os) {
+
+
+        productsList.add(new Products(id,name,price,image,image_detail,company,battery,frntCam,bckCam,memory,processor,os));
+        setProdItemRecycler(productsList);
     }
 
     private void getCategory() {

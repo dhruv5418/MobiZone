@@ -49,17 +49,15 @@
         app:layout_constraintTop_toTopOf="@+id/textView8" />
 
     <TextView
-        android:id="@+id/prod_qty"
+        android:id="@+id/prod_memory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_bold"
         android:text="64 GB"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="@+id/textView8"
-        app:layout_constraintHorizontal_bias="0.296"
         app:layout_constraintStart_toStartOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -75,7 +73,7 @@
         app:layout_constraintEnd_toEndOf="@+id/textView9"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="@+id/prod_qty" />
+        app:layout_constraintTop_toTopOf="@+id/prod_memory" />
 
     <TextView
         android:id="@+id/prod_name"

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mobizone.R;
 import com.example.mobizone.model.Products;
 import com.example.mobizone.view.ProductdetailsActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -39,25 +40,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     @Override
     public void onBindViewHolder(@NonNull final ProductViewHolder holder, int position) {
-
-
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               Intent i= new Intent(view.getContext(),ProductdetailsActivity.class);
-               view.getContext().startActivity(i);
-
-             /*   Intent i = new Intent(context, productdetailsFragment.class);
-
-
-                *//*Pair[] pairs = new Pair[1];
-                pairs[0] = new Pair<View, String>(holder.prodImage, "image");
-                ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation((Activity) context, pairs);
-               *//*
-              context.startActivity(i*//*, activityOptions.toBundle()*//*);*/
-            }
-        });
+        Picasso.get().load(productsList.get(position).getImageUrl()).into(holder.prodImage);
+        holder.prodName.setText(productsList.get(position).getProductName());
+        holder.prodPrice.setText(productsList.get(position).getProductPrice());
+        holder.prodMemory.setText(productsList.get(position).getMemory());
 
 
     }
@@ -70,15 +56,17 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public static final class ProductViewHolder extends RecyclerView.ViewHolder{
 
         ImageView prodImage;
-        TextView prodName, prodQty, prodPrice;
+        TextView prodName, prodPrice,prodMemory;
+
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
 
+
             prodImage = itemView.findViewById(R.id.prod_image);
             prodName = itemView.findViewById(R.id.prod_name);
             prodPrice = itemView.findViewById(R.id.prod_price);
-            prodQty = itemView.findViewById(R.id.prod_qty);
+            prodMemory = itemView.findViewById(R.id.prod_memory);
 
 
         }
