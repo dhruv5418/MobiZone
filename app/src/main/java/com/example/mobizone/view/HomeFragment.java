@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.mobizone.R;
@@ -39,6 +40,7 @@ public class HomeFragment extends Fragment {
     FirebaseAuth auth;
     List<Products> productsList = new ArrayList<>();
     List<ProductCategory> productCategoryList = new ArrayList<>();
+    ImageView imageView;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -62,9 +64,18 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         productCatRecycler = view.findViewById(R.id.cat_recycler);
         prodItemRecycler = view.findViewById(R.id.product_recycler);
+        imageView=view.findViewById(R.id.imageView);
+        imageView.setOnClickListener(removeFilter);
         getCategory();
         getAllProducts();
     }
+    View.OnClickListener removeFilter=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            removeitem(productsList);
+            getAllProducts();
+        }
+    };
 
     private void getAllProducts() {
         db.collection("Products")
