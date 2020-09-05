@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mobizone.R;
 import com.example.mobizone.model.Cart;
-
+import com.squareup.picasso.Picasso;
 
 
 import java.util.List;
@@ -25,6 +25,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
     Context context;
     List<Cart> cartList;
     NavController navController;
+    private View.OnClickListener clickListener;
 
     public CartAdapter(Context context, List<Cart> cartList) {
         this.context = context;
@@ -42,16 +43,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
     @Override
     public void onBindViewHolder(@NonNull final ProductViewHolder holder, int position) {
 
+        Picasso.get().load(cartList.get(position).getImageUrl()).into(holder.prodImage);
+        holder.prodName.setText(cartList.get(position).getProductName());
+        holder.prodQty.setText("Qty:- "+cartList.get(position).getProductQty());
+        holder.prodPrice.setText("$ "+cartList.get(position).getProductPrice());
 
-
-     /*   holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i= new Intent(view.getContext(), ProductdetailsActivity.class);
-                view.getContext().startActivity(i);
-            }
-        });*/
-
+    }
+    public void setOnClickListner(View.OnClickListener onClickListner)
+    {
+        clickListener = onClickListner;
     }
 
     @Override
@@ -59,10 +59,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
         return cartList.size();
     }
 
-    public static final class ProductViewHolder extends RecyclerView.ViewHolder{
+    public final class ProductViewHolder extends RecyclerView.ViewHolder{
 
         ImageView prodImage;
-        TextView prodName, prodQty, prodPrice;
+        TextView prodName, prodQty,prodPrice,prod_removeItem;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -71,7 +71,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
             prodName = itemView.findViewById(R.id.cart_item_txt);
             prodPrice = itemView.findViewById(R.id.cart_product_price);
             prodQty = itemView.findViewById(R.id.cart_product_quantity);
-
+            prod_removeItem=itemView.findViewById(R.id.txt_removeItem);
+            prod_removeItem.setTag(this);
+            prod_removeItem.setOnClickListener(clickListener);
 
         }
     }

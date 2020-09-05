@@ -9,16 +9,16 @@ public class Cart implements Parcelable{
     String productName;
     String productQty;
     String productPrice;
-    private Uri uri;
+    String imageUrl;
 
 
-    public Cart(Integer productid, String productName, String productQty, String productPrice, Uri uri) {
+    public Cart(Integer productid, String productName, String productQty, String productPrice, String imageUrl) {
 
         this.productid = productid;
         this.productName = productName;
         this.productQty = productQty;
         this.productPrice = productPrice;
-        this.uri = uri;
+        this.imageUrl = imageUrl;
 
     }
 
@@ -31,7 +31,7 @@ public class Cart implements Parcelable{
         productName = in.readString();
         productQty = in.readString();
         productPrice = in.readString();
-        uri = in.readParcelable(Uri.class.getClassLoader());
+        imageUrl = in.readString();
     }
 
     public static final Parcelable.Creator<Cart> CREATOR = new Parcelable.Creator<Cart>() {
@@ -72,12 +72,12 @@ public class Cart implements Parcelable{
         this.productPrice = productPrice;
     }
 
-    public Uri getImageUrl() {
-        return uri;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImageUrl(Uri imageUrl) {
-        this.uri = uri;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
 
@@ -105,6 +105,6 @@ public class Cart implements Parcelable{
         parcel.writeString(productName);
         parcel.writeString(productQty);
         parcel.writeString(productPrice);
-        parcel.writeParcelable(uri, i);
+        parcel.writeString(imageUrl);
     }
 }

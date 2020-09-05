@@ -1,5 +1,6 @@
 package com.example.mobizone.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,12 +14,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mobizone.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ProductdetailsActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -92,7 +99,7 @@ public class ProductdetailsActivity extends AppCompatActivity implements View.On
         switch (v.getId()){
 
             case R.id.btn_addCart:
-                Toast.makeText(getApplicationContext(),"Item Added to cart!",Toast.LENGTH_LONG).show();
+                addCart();
                 break;
             case R.id.btn_orderNow:
                 Intent intent=new Intent(ProductdetailsActivity.this,AddressActivity.class);
@@ -103,5 +110,24 @@ public class ProductdetailsActivity extends AppCompatActivity implements View.On
 
         }
 
+    }
+
+    private void addCart() {
+        FirebaseUser user=auth.getCurrentUser();
+        Date date = new Date();
+        Map<String, Object> data = new HashMap<>();
+        Pqunt=spinner.getSelectedItem().toString();
+        data.put("Userid", user.getUid());
+        data.put("Quantity", Pqunt);
+        data.put("Productid", Pid);
+        data.put("Name", Pname);
+        data.put("Price", Pprice);
+        data.put("Image",Pimage);
+        db.collection("Users").document(user.getUid()).collection("Cart").document(String.valueOf(date)).set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Toast.makeText(getApplicationContext(),"Item added to cart!!!",Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
