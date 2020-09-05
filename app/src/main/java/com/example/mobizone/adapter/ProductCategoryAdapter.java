@@ -19,7 +19,7 @@ public class ProductCategoryAdapter extends RecyclerView.Adapter<ProductCategory
 
     Context context;
     List<ProductCategory> productCategoryList;
-
+    private View.OnClickListener clickListener;
     public ProductCategoryAdapter(Context context, List<ProductCategory> productCategoryList) {
         this.context = context;
         this.productCategoryList = productCategoryList;
@@ -45,9 +45,13 @@ public class ProductCategoryAdapter extends RecyclerView.Adapter<ProductCategory
     public int getItemCount() {
         return productCategoryList.size();
     }
+    public void setOnClickListner(View.OnClickListener onClickListner)
+    {
+        clickListener = onClickListner;
+    }
 
 
-    public static final class ProductViewHolder extends RecyclerView.ViewHolder{
+    public final class ProductViewHolder extends RecyclerView.ViewHolder{
 
 
         TextView catagoryName;
@@ -56,7 +60,8 @@ public class ProductCategoryAdapter extends RecyclerView.Adapter<ProductCategory
             super(itemView);
 
             catagoryName = itemView.findViewById(R.id.cat_name);
-
+            itemView.setTag(this);
+            itemView.setOnClickListener(clickListener);
         }
     }
 

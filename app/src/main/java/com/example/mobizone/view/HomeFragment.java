@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.mobizone.R;
 import com.example.mobizone.adapter.ProductAdapter;
@@ -125,9 +126,48 @@ public class HomeFragment extends Fragment {
         productCatRecycler.setLayoutManager(layoutManager);
         productCategoryAdapter = new ProductCategoryAdapter(getActivity(), productCategoryList);
         productCatRecycler.setAdapter(productCategoryAdapter);
-
+        productCategoryAdapter.setOnClickListner(onClickCategory);
     }
+    View.OnClickListener onClickCategory=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            RecyclerView.ViewHolder viewHolder=(RecyclerView.ViewHolder) v.getTag();
+            // viewHolder.itemView.setBackgroundColor(Color.parseColor("#A9A9A9"));
+            int position = viewHolder.getAdapterPosition();
+            Toast.makeText(getActivity().getApplicationContext(),productCategoryList.get(position).getProductCategory(),Toast.LENGTH_SHORT).show();
+            removeitem(productsList);
 
+            setFilterData(productCategoryList.get(position).getProductCategory());
+        }
+    };
+    private void setFilterData(final String company){
+        db.collection("Products")
+                .whereEqualTo("Company", company)
+                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                for (QueryDocumentSnapshot document : task.getResult()) {
+                    Log.d("", document.getId() + " => " + document.getData());
+                    System.out.println(document.getId() + " => " + document.getData());
+                    String name= (String) document.getData().get("Name");
+                    String company= (String) document.getData().get("Company");
+                    String memory= (String) document.getData().get("Memory");
+                    String price= (String) document.getData().get("Price");
+                    int id= Integer.parseInt(document.getId());
+                    String image= (String) document.getData().get("image");
+                    String image_detail= (String) document.getData().get("image_detail");
+                    String processor= (String) document.getData().get("Processor");
+                    String battery= (String) document.getData().get("Battery");
+                    String frntCam= (String) document.getData().get("Front Cam");
+                    String bckCam= (String) document.getData().get("Back Cam");
+                    String os=(String) document.getData().get("os");
+                    getItem(id,name,company,memory,price,image,image_detail,processor,battery,frntCam,bckCam,os);
+
+                }
+
+            }
+        });
+    }
 
 
     private void setProdItemRecycler(List<Products> productsList){
@@ -138,5 +178,15 @@ public class HomeFragment extends Fragment {
         productAdapter = new ProductAdapter(getActivity(), productsList);
         prodItemRecycler.setAdapter(productAdapter);
 
+    }
+    private void removeitem(List<Products> productsList) {
+        int size = productsList.size();
+        if (size > 0) {
+            for (int i = 0; i < size; i++) {
+                productsList.remove(0);
+                productAdapter.notifyItemRemoved(i);
+                productAdapter.notifyItemRangeChanged(i, productsList.size());
+            }
+        }
     }
 }
