@@ -73,7 +73,11 @@ public class CartFragment extends Fragment {
     View.OnClickListener onClick=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent=new Intent(getActivity().getApplicationContext(),AddressActivity.class);
+            Intent intent=new Intent(getActivity().getApplicationContext(),OrdersummaryActivity.class);
+            Bundle b = new Bundle();
+            b.putDouble("total", total);
+            b.putParcelableArrayList("list", productsList);
+            intent.putExtras(b);
             startActivity(intent);
         }
     };

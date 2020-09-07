@@ -29,7 +29,7 @@ import java.util.Map;
 
 public class ProductdetailsActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button btn_addCart,btn_orderNow;
+    Button btn_addCart;
     Spinner spinner;
     ImageView img_backDetails,img_product;
     TextView name,company,price,memory,battery,processor,frnt,bck,os;
@@ -44,7 +44,6 @@ public class ProductdetailsActivity extends AppCompatActivity implements View.On
         auth=FirebaseAuth.getInstance();
         db=FirebaseFirestore.getInstance();
         btn_addCart=findViewById(R.id.btn_addCart);
-        btn_orderNow=findViewById(R.id.btn_orderNow);
         img_backDetails=findViewById(R.id.img_backDetails);
         img_backDetails.setOnClickListener(this);
         name=findViewById(R.id.txt_name);
@@ -61,7 +60,6 @@ public class ProductdetailsActivity extends AppCompatActivity implements View.On
         spinner=findViewById(R.id.spinner);
         setSpinner();
         btn_addCart.setOnClickListener(this);
-        btn_orderNow.setOnClickListener(this);
     }
     private void showData() {
 
@@ -100,10 +98,6 @@ public class ProductdetailsActivity extends AppCompatActivity implements View.On
 
             case R.id.btn_addCart:
                 addCart();
-                break;
-            case R.id.btn_orderNow:
-                Intent intent=new Intent(ProductdetailsActivity.this,AddressActivity.class);
-                startActivity(intent);
                 break;
             case R.id.img_backDetails:onBackPressed();
                     break;
