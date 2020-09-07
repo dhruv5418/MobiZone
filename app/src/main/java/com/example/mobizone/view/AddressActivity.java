@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 
 import com.example.mobizone.R;
@@ -15,6 +16,7 @@ public class AddressActivity extends AppCompatActivity implements View.OnClickLi
 
     Toolbar toolbar;
     Button btn_add;
+    EditText uname,uapt,uaddress,ucity,uprovince,umob,upostal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +29,13 @@ public class AddressActivity extends AppCompatActivity implements View.OnClickLi
                 onBackPressed();
             }
         });
+        uname = findViewById(R.id.name);
+        uapt = findViewById(R.id.aptId);
+        uaddress = findViewById(R.id.addressId);
+        ucity = findViewById(R.id.city);
+        upostal = findViewById(R.id.postalID);
+        umob=findViewById(R.id.mobileId);
+        uprovince=findViewById(R.id.provinceId);
         btn_add.setOnClickListener(this);
     }
 
@@ -35,9 +44,25 @@ public class AddressActivity extends AppCompatActivity implements View.OnClickLi
         Intent intent;
         switch (view.getId()){
 
-            case R.id.btn_addNxt:intent=new Intent(AddressActivity.this,PaymentActivity.class);
-                                 startActivity(intent);
-                                 break;
+            case R.id.btn_addNxt:   String name = uname.getText().toString();
+                                    String apt = uapt.getText().toString();
+                                    String address = uaddress.getText().toString();
+                                    String city = ucity.getText().toString();
+                                    String province=uprovince.getText().toString();
+                                    String postal = upostal.getText().toString();
+                                    String mob=umob.getText().toString();
+                                    final Bundle b = getIntent().getExtras();
+                                    b.putString("Name",name);
+                                    b.putString("apt",apt);
+                                    b.putString("address",address);
+                                    b.putString("city",city);
+                                    b.putString("province",province);
+                                    b.putString("postal",postal);
+                                    b.putString("mobile",mob);
+                                    intent=new Intent(AddressActivity.this,PaymentActivity.class);
+                                    intent.putExtras(b);
+                                    startActivity(intent);
+                                    break;
         }
     }
 }

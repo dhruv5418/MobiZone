@@ -194,9 +194,7 @@ public class HomeFragment extends Fragment {
         int size = productsList.size();
         if (size > 0) {
             for (int i = 0; i < size; i++) {
-                productsList.remove(0);
-                productAdapter.notifyItemRemoved(i);
-                productAdapter.notifyItemRangeChanged(i, productsList.size());
+                productsList.removeAll(productsList);
             }
         }
     }
