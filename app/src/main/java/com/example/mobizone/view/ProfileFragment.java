@@ -44,6 +44,14 @@ import java.io.IOException;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
+/**
+ * @author Patel Dhruv
+ * @author Gakhar Tanvi
+ * @author Sarbjit Kaur
+ * @author Kamaljit Kaur
+ * @author Akshay Varma
+ * This java class is for Profile Fragment.
+ */
 public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     RelativeLayout rel_pro,rel_pass,rel_signout,rel_feed,rel_order;
@@ -158,6 +166,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+    /**
+     * for sending reset pass link on emailId using FirebaseAuth
+     * @param email
+     */
     private void resetPass(String email) {
         auth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
