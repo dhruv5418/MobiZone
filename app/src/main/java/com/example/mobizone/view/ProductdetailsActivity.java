@@ -71,7 +71,7 @@ public class ProductdetailsActivity extends AppCompatActivity implements View.On
         final int id = b.getInt("id");
         name.setText(Pname);
         company.setText(b.getString("Company"));
-        battery.setText("Battery");
+        battery.setText(b.getString("Battery"));
         memory.setText(b.getString("Memory"));
         processor.setText(b.getString("Processor"));
         frnt.setText(b.getString("Front"));
