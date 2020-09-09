@@ -9,9 +9,25 @@ import android.widget.Button;
 
 import com.example.mobizone.R;
 
+/**
+ * @author Patel Dhruv
+ * @author Gakhar Tanvi
+ * @author Kaur Sarbjit
+ * @author Kaur Kamaljit
+ * @author Varma Akshay
+ * Java class for thank you activity
+ */
 public class ThankyouActivity extends AppCompatActivity {
 
+    /**
+     * Variable for button
+     */
     Button btn_con;
+
+    /**
+     * onCreate method
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

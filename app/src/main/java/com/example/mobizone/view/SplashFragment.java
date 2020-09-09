@@ -19,25 +19,55 @@ import com.example.mobizone.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-
+/**
+ * @author Patel Dhruv
+ * @author Gakhar Tanvi
+ * @author Kaur Sarbjit
+ * @author Kaur Kamaljit
+ * @author Varma Akshay
+ * SplashFragment java class
+ */
 public class SplashFragment extends Fragment implements View.OnClickListener {
-
+    /**
+     * Variable for Register and Login button
+     */
     Button btn_reg,btn_log;
+    /**
+     * Variable of navController
+     */
     NavController navController;
+    /**
+     * Variable of Firebase Authentication
+     */
     FirebaseAuth auth;
+    /**
+     * Variable of Firebase User
+     */
     FirebaseUser curUser;
+
+    /**
+     * Constructor
+     */
     public SplashFragment() {
         // Required empty public constructor
     }
 
 
-
+    /**
+     * onCreate method
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         auth=FirebaseAuth.getInstance();
     }
 
+    /**
+     * onViewCreated method
+     * @param view
+     * @param savedInstanceState
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -47,6 +77,13 @@ public class SplashFragment extends Fragment implements View.OnClickListener {
         btn_log.setOnClickListener(this);
     }
 
+    /**
+     * onCreateView method
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,6 +91,10 @@ public class SplashFragment extends Fragment implements View.OnClickListener {
         return inflater.inflate(R.layout.fragment_splash, container, false);
     }
 
+    /**
+     * onClick method
+     * @param view
+     */
     @Override
     public void onClick(View view) {
         navController= Navigation.findNavController(getActivity(),R.id.nav_host_login);
@@ -67,6 +108,10 @@ public class SplashFragment extends Fragment implements View.OnClickListener {
         }
 
     }
+
+    /**
+     * onStart method
+     */
     @Override
     public void onStart() {
         super.onStart();
@@ -77,6 +122,10 @@ public class SplashFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+    /**
+     * Method for updating UI
+     * @param fUser
+     */
     public void updateUI(FirebaseUser fUser){
         Intent intent = new Intent(getActivity(), DashActivity.class);
         intent.putExtra("User",fUser);

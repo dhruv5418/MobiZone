@@ -20,17 +20,42 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+/**
+ * @author Patel Dhruv
+ * @author Gakhar Tanvi
+ * @author Kaur Sarbjit
+ * @author Kaur Kamaljit
+ * @author Varma Akshay
+ * This adapter class is used for showing different products.
+ */
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
+    /**
+     * Variable of a context
+     */
     Context context;
-    List<Products> productsList;
-    NavController navController;
 
+    /**
+     * ArrayList for products type
+     */
+    List<Products> productsList;
+
+    /**
+     * Constructor
+     * @param context
+     * @param productsList
+     */
     public ProductAdapter(Context context, List<Products> productsList) {
         this.context = context;
         this.productsList = productsList;
     }
 
+    /**
+     * onCreate method for different product categories
+     * @param parent
+     * @param viewType
+     * @return
+     */
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,6 +64,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         return new ProductViewHolder(view);
     }
 
+    /**
+     * onBind method for product categories
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(@NonNull final ProductViewHolder holder, final int position) {
         Picasso.get().load(productsList.get(position).getImageUrl()).into(holder.prodImage);
@@ -47,6 +77,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.prodMemory.setText(productsList.get(position).getMemory());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            /**
+             * Adapter onClickListener
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, ProductdetailsActivity.class);
@@ -81,11 +116,18 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         });
     }
 
+    /**
+     * Method for getting List size
+     * @return
+     */
     @Override
     public int getItemCount() {
         return productsList.size();
     }
 
+    /**
+     * Item class
+     */
     public static final class ProductViewHolder extends RecyclerView.ViewHolder{
 
         ImageView prodImage;

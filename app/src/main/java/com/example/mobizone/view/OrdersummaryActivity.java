@@ -11,10 +11,36 @@ import android.widget.TextView;
 
 import com.example.mobizone.R;
 
+/**
+ * @author Patel Dhruv
+ * @author Gakhar Tanvi
+ * @author Kaur Sarbjit
+ * @author Kaur Kamaljit
+ * @author Varma Akshay
+ * Class for Order Summary
+ */
+
 public class OrdersummaryActivity extends AppCompatActivity {
+
+    /**
+     * Variable of TextView
+     */
     TextView stotal,Tp;
+
+    /**
+     * Variable of checkout button
+     */
     Button btnCheckout;
+
+    /**
+     * Variable of toolbar
+     */
     Toolbar toolbar;
+
+    /**
+     * onCreate method
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

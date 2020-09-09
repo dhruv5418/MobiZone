@@ -11,10 +11,30 @@ import android.view.MenuItem;
 import com.example.mobizone.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+/**
+ * @author Patel Dhruv
+ * @author Gakhar Tanvi
+ * @author Kaur Sarbjit
+ * @author Kaur Kamaljit
+ * @author Varma Akshay
+ * Java class for Dash activity
+ */
 public class DashActivity extends AppCompatActivity {
 
+    /**
+     * Variable for BottomNavigation
+     */
     BottomNavigationView bottomNav;
+
+    /**
+     * Variable for navController
+     */
     NavController navController;
+
+    /**
+     * onCreate method
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

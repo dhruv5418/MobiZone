@@ -17,15 +17,43 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+/**
+ * @author Patel Dhruv
+ * @author Gakhar Tanvi
+ * @author Kaur Sarbjit
+ * @author Kaur Kamaljit
+ * @author Varma Akshay
+ * This Adapter is used for showing different categories of products
+ */
+
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHolder> {
+
+    /**
+     * Variable of context
+     */
     Context context;
+
+    /**
+     * ArrayList of Order type
+     */
     List<Order> productsList;
 
+    /**
+     * Constructor
+     * @param context
+     * @param productsList
+     */
     public OrderAdapter(Context context, List<Order> productsList) {
         this.context = context;
         this.productsList = productsList;
     }
 
+    /**
+     * onCreate method for different product categories
+     * @param parent
+     * @param viewType
+     * @return
+     */
     @NonNull
     @Override
     public OrderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -33,6 +61,11 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         return new OrderViewHolder(view);
     }
 
+    /**
+     * onBind method for product categories
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
         Picasso.get().load(productsList.get(position).getDetail_image()).into(holder.prodImage);
@@ -46,11 +79,18 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         holder.postal.setText("Postal:- "+productsList.get(position).getPostal());
     }
 
+    /**
+     * Method for getting List size
+     * @return
+     */
     @Override
     public int getItemCount() {
         return productsList.size();
     }
 
+    /**
+     * Item class
+     */
     public static final class OrderViewHolder extends RecyclerView.ViewHolder{
 
         ImageView prodImage;
