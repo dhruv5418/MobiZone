@@ -30,6 +30,14 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Patel Dhruv
+ * @author Gakhar Tanvi
+ * @author Sarbjit Kaur
+ * @author Kamaljit Kaur
+ * @author Akshay Varma
+ * this java class is for Home Fragment
+ */
 public class HomeFragment extends Fragment {
 
 
@@ -41,10 +49,18 @@ public class HomeFragment extends Fragment {
     List<Products> productsList = new ArrayList<>();
     List<ProductCategory> productCategoryList = new ArrayList<>();
     ImageView imageView;
+
+    /**
+     * default constructor for the class
+     */
     public HomeFragment() {
         // Required empty public constructor
     }
 
+    /**
+     * onCreate Method
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +68,13 @@ public class HomeFragment extends Fragment {
         db=FirebaseFirestore.getInstance();
     }
 
+    /**
+     * onCreateView Method
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -59,6 +82,11 @@ public class HomeFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
+    /**
+     * onViewCreated method
+     * @param view
+     * @param savedInstanceState
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -151,6 +179,11 @@ public class HomeFragment extends Fragment {
             setFilterData(productCategoryList.get(position).getProductCategory());
         }
     };
+
+    /**
+     * Filter for showing product property
+     * @param company
+     */
     private void setFilterData(final String company){
         db.collection("Products")
                 .whereEqualTo("Company", company)

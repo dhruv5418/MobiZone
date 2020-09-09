@@ -22,25 +22,68 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * @author Patel Dhruv
+        * @author Gakhar Tanvi
+        * @author Sarbjit Kaur
+        * @author Kamaljit Kaur
+        * @author Akshay Varma
+        * this java class is for reset the password using firebase.
+        */
 public class ForgotpassFragment extends Fragment implements View.OnClickListener {
 
-Button btn_send;
-TextView txt_login;
+    /**
+     * variable of button
+     */
+    Button btn_send;
+
+    /**
+     * variable of Text View
+     */
+    TextView txt_login;
+
+    /**
+     * object of FirebaseAuth
+     */
     private FirebaseAuth auth;
+
+    /**
+     * variable of edit Text
+     */
     private EditText edt_email;
+
+    /**
+     * object of navController
+     */
     NavController navController;
+
+    /**
+     * variable of String
+     */
     String email;
+
+    /**
+     * default constructor for the class
+     */
     public ForgotpassFragment() {
         // Required empty public constructor
     }
 
-
+    /**
+     * onCreate method
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         auth=FirebaseAuth.getInstance();
     }
 
+    /**
+     * onViewCreated method
+     * @param view
+     * @param savedInstanceState
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -51,6 +94,13 @@ TextView txt_login;
         txt_login.setOnClickListener(this);
     }
 
+    /**
+     * onCreateView method
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -58,6 +108,10 @@ TextView txt_login;
         return inflater.inflate(R.layout.fragment_forgotpass, container, false);
     }
 
+    /**
+     * onClickListener for fragment
+     * @param view
+     */
     @Override
     public void onClick(View view) {
         NavController navController= Navigation.findNavController(getActivity(),R.id.nav_host_login);
@@ -78,6 +132,10 @@ TextView txt_login;
 
     }
 
+    /**
+     * to send password reset email using firebase
+     * @param email
+     */
     private void reset(String email) {
         auth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

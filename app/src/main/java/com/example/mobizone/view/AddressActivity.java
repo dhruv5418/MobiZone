@@ -12,11 +12,35 @@ import android.widget.EditText;
 
 import com.example.mobizone.R;
 
+
+/**
+ * @author Patel Dhruv
+ * @author Gakhar Tanvi
+ * @author Sarbjit Kaur
+ * @author Kamaljit Kaur
+ * @author Akshay Varma
+ * this java class is for Address Activity
+ */
 public class AddressActivity extends AppCompatActivity implements View.OnClickListener {
 
+    /**
+     * Variable of toolbar
+     */
     Toolbar toolbar;
+
+    /**
+     * variable of Button
+     */
     Button btn_add;
+    /**
+     * variables of all required Edit Text
+     */
     EditText uname,uapt,uaddress,ucity,uprovince,umob,upostal;
+
+    /**
+     * on Create method
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +63,9 @@ public class AddressActivity extends AppCompatActivity implements View.OnClickLi
         btn_add.setOnClickListener(this);
     }
 
+    /**
+     * on Click method
+     */
     @Override
     public void onClick(View view) {
         Intent intent;
