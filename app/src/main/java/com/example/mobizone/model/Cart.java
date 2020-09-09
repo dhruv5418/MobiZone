@@ -4,6 +4,14 @@ import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+/**
+ *  @author Dhruv Patel
+ *   @author Gakhar Tanvi
+ *  @author Sarbjit Kaur
+ *  @author Kamaljit Kaur
+ *  @author Akshay Varma
+ *  This java class is  model class for cart
+ */
 public class Cart implements Parcelable{
     Integer productid;
     String productName;
@@ -34,7 +42,11 @@ public class Cart implements Parcelable{
         imageUrl = in.readString();
     }
 
+    /**
+     * parcelable creator method
+     */
     public static final Parcelable.Creator<Cart> CREATOR = new Parcelable.Creator<Cart>() {
+
         @Override
         public Cart createFromParcel(Parcel in) {
             return new Cart(in);
@@ -46,54 +58,102 @@ public class Cart implements Parcelable{
         }
     };
 
+    /**
+     * getter method for productname
+     * @return
+     */
     public String getProductName() {
         return productName;
     }
 
+    /**
+     * setter method for product name
+     * @param productName
+     */
     public void setProductName(String productName) {
         this.productName = productName;
     }
 
 
-
+    /**
+     * getter method for product quantity
+     * @return
+     */
     public String getProductQty() {
         return productQty;
     }
 
+    /**
+     * setter method for product Quantity
+     * @param productQty
+     */
     public void setProductQty(String productQty) {
         this.productQty = productQty;
     }
 
+    /**
+     * getter method for product price
+     * @return
+     */
     public String getProductPrice() {
         return productPrice;
     }
 
+    /**
+     * setter method for product price
+     * @param productPrice
+     */
     public void setProductPrice(String productPrice) {
         this.productPrice = productPrice;
     }
 
+    /**
+     * getter mehod for image url
+     * @return
+     */
     public String getImageUrl() {
         return imageUrl;
     }
 
+    /**
+     * setter method for image url
+     * @param imageUrl
+     */
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 
 
+    /**
+     * getter method for product id
+     * @return
+     */
     public Integer getProductid() {
         return productid;
     }
 
+    /**
+     * setter method for product id
+     * @param productid
+     */
     public void setProductid(Integer productid) {
         this.productid = productid;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int describeContents() {
         return 0;
     }
 
+    /**
+     *
+     * @param parcel
+     * @param i
+     */
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         if (productid == null) {

@@ -33,12 +33,40 @@ import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+/**
+ *  @author Dhruv Patel
+ *   @author Gakhar Tanvi
+ *  @author Sarbjit Kaur
+ *  @author Kamaljit Kaur
+ *  @author Akshay Varma
+ *  This java class is for profile activity
+ */
 public class ProfileActivity extends AppCompatActivity {
+    /**
+     * object of FirebaseAuth
+     */
     private FirebaseAuth auth;
+    /**
+     * object of FirebaseUser
+     */
     private FirebaseUser curUser;
+    /**
+     * object of CircleImageView
+     */
     CircleImageView imageView;
+    /**
+     * object of toolbar
+     */
     Toolbar toolbar;
+    /**
+     * object of FirebaseFirestore
+     */
     private FirebaseFirestore db;
+
+    /**
+     * oncreate method
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +95,9 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * onclicklistener for circle view
+     */
     CircleImageView.OnClickListener changeProfile=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -90,6 +121,13 @@ public class ProfileActivity extends AppCompatActivity {
             builder.show();
         }
     };
+
+    /**
+     * onActivityResult method
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -117,6 +155,10 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     *
+     * @param bitmap
+     */
     private void handleUpload(Bitmap bitmap) {
         ByteArrayOutputStream baos= new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG,100,baos);
@@ -138,6 +180,10 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * getter method for download url
+     * @param reference
+     */
     private void getDownloadUrl(StorageReference reference){
         reference.getDownloadUrl()
                 .addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -149,6 +195,10 @@ public class ProfileActivity extends AppCompatActivity {
                 });
     }
 
+    /**
+     * setter method for user profile
+     * @param uri
+     */
     private void setUserProfile(Uri uri){
         UserProfileChangeRequest request=new UserProfileChangeRequest.Builder()
                 .setPhotoUri(uri)
@@ -160,6 +210,10 @@ public class ProfileActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Updated Successfully",Toast.LENGTH_LONG).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
+            /**
+             * onFailure method
+             * @param e
+             */
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(getApplicationContext(),"Profile Update Unsuccessful",Toast.LENGTH_LONG).show();

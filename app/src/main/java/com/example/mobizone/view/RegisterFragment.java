@@ -33,21 +33,54 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+/**
+ * @author Dhruv Patel
+ * @author Gakhar Tanvi
+ * @author Sarbjit Kaur
+ * @author Kamaljit Kaur
+ * @author Akshay Varma
+ * This java class is used for registering the user in firebase database
+ */
 public class RegisterFragment extends Fragment implements View.OnClickListener {
 
     EditText edt_fName,edt_lName,edt_email,edt_pass,edt_cPass;
+    /**
+     * variable of button
+     */
     Button btn_reg;
+    /**
+     * variable of textview
+     */
     TextView txt_log;
+    /**
+     * variables of string
+     */
     String fName,lName,email,pass,cPass;
+    /**
+     * object of navcontroller
+     */
     NavController navController;
+    /**
+     * object of firebaseAuth
+     */
     private FirebaseAuth auth;
+    /**
+     * object of firebaseFirestore
+     */
     private FirebaseFirestore db;
+
+    /**
+     * default constructor for the class
+     */
     public RegisterFragment() {
         // Required empty public constructor
     }
 
 
-
+    /**
+     * oncreate method
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +88,11 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         db=FirebaseFirestore.getInstance();
     }
 
+    /**
+     * onview created method
+     * @param view
+     * @param savedInstanceState
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -70,6 +108,13 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         btn_reg.setOnClickListener(this);
     }
 
+    /**
+     * oncreateview method
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -77,6 +122,10 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         return inflater.inflate(R.layout.fragment_register, container, false);
     }
 
+    /**
+     * onclicklistener for fragment
+     * @param view
+     */
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -144,6 +193,9 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+    /**
+     * this method register the user's email and password by using firebase authentication
+     */
     public void register(){
 
         auth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
