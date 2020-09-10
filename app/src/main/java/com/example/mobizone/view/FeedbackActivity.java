@@ -13,12 +13,37 @@ import android.widget.TextView;
 
 import com.example.mobizone.R;
 
+/**
+ *  @author Dhruv Patel
+ *  @author Gakhar Tanvi
+ *  @author Sarbjit Kaur
+ *  @author Kamaljit Kaur
+ *  @author Akshay Varma
+ *  This java class is for feedback activity
+ */
 public class FeedbackActivity extends AppCompatActivity {
 
+    /**
+     * Variable of button
+     */
     Button btn_send;
+    /**
+     * Variable of EditText
+     */
     EditText txt_message;
+    /**
+     * String for storing feedback message
+     */
     String message;
+    /**
+     * Toolbar variable
+     */
     Toolbar toolbar;
+
+    /**
+     * onCreate method
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +66,9 @@ public class FeedbackActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Method for opening Email App
+     */
     private void sendFeedback() {
         String[] TO = {"dhruvj5418@gmail.com","gakhartanvi@gmail.com"};
         String[] CC = {""};

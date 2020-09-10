@@ -11,14 +11,41 @@ import android.net.Uri;
  */
 public class Order {
 
+    /**
+     * Product Name
+     */
     String productName;
+    /**
+     * Product Quantity
+     */
     String productQty;
+    /**
+     * Product Price
+     */
     String productPrice;
+    /**
+     * Apartment number
+     */
     String apt;
+    /**
+     * Postal code
+     */
     String postal;
+    /**
+     * City Name
+     */
     String city;
+    /**
+     * Street Address
+     */
     String address;
+    /**
+     * Name of Province
+     */
     String province;
+    /**
+     * Url of image
+     */
     String  detail_image;
 
 

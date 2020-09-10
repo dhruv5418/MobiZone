@@ -42,6 +42,10 @@ public class DashActivity extends AppCompatActivity {
         bottomNav=(BottomNavigationView)findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListner);
     }
+
+    /**
+     * BottomNavigation item click listener
+     */
     private BottomNavigationView.OnNavigationItemSelectedListener  navListner=
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override

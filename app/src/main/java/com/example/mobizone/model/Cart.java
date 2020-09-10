@@ -13,13 +13,36 @@ import android.os.Parcelable;
  *  This java class is  model class for cart
  */
 public class Cart implements Parcelable{
+    /**
+     * Integer for productId
+     */
     Integer productid;
+    /**
+     * String for product name
+     */
     String productName;
+    /**
+     * String for product quantity
+     */
     String productQty;
+    /**
+     * String product price
+     */
     String productPrice;
+    /**
+     * String image url
+     */
     String imageUrl;
 
 
+    /**
+     * Constructor
+     * @param productid
+     * @param productName
+     * @param productQty
+     * @param productPrice
+     * @param imageUrl
+     */
     public Cart(Integer productid, String productName, String productQty, String productPrice, String imageUrl) {
 
         this.productid = productid;
@@ -30,6 +53,10 @@ public class Cart implements Parcelable{
 
     }
 
+    /**
+     *
+     * @param in
+     */
     protected Cart(Parcel in) {
         if (in.readByte() == 0) {
             productid = null;

@@ -29,15 +29,45 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ *  @author Dhruv Patel
+ *   @author Gakhar Tanvi
+ *  @author Sarbjit Kaur
+ *  @author Kamaljit Kaur
+ *  @author Akshay Varma
+ *  This java class is for Payment activity
+ */
 public class PaymentActivity extends AppCompatActivity {
 
+    /**
+     * object of Firestore
+     */
     FirebaseFirestore db;
+    /**
+     * object of FirebaseAuth
+     */
     FirebaseAuth auth;
+    /**
+     * object of FirebaseUser
+     */
     FirebaseUser user;
+    /**
+     * variable of button
+     */
     Button btn_pay;
+    /**
+     * Variables of all edit texts
+     */
     EditText nameCard,cardNo,exp,cvv;
+    /**
+     * Strings
+     */
     String name,apt,add,city,mob,province,postal;
 
+    /**
+     * onCreate
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,6 +116,22 @@ public class PaymentActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Method for saving order details in firestore
+     * @param cname
+     * @param cno
+     * @param expiry
+     * @param cv
+     * @param name
+     * @param apt
+     * @param add
+     * @param city
+     * @param province
+     * @param postal
+     * @param mob
+     * @param i
+     * @param list
+     */
     private void savedata(String cname, String cno, String expiry, String cv, String name, String apt, String add, String city, String province, String postal, String mob, int i, ArrayList<Cart> list) {
         final String userid= String.valueOf(user.getUid());
         Date date = new Date();

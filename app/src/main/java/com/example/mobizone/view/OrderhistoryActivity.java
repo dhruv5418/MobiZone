@@ -22,14 +22,48 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
+/**
+ * @author Patel Dhruv
+ * @author Gakhar Tanvi
+ * @author Sarbjit Kaur
+ * @author Kamaljit Kaur
+ * @author Akshay Varma
+ * this java class is for Order History
+ */
 public class OrderhistoryActivity extends AppCompatActivity {
+    /**
+     * Object of FirebaseFirestore
+     */
     FirebaseFirestore db;
+    /**
+     * Object of FirebaseAuth
+     */
     FirebaseAuth auth;
+    /**
+     * Object of FirebaseUser
+     */
     FirebaseUser user;
+    /**
+     * variable of toolbar
+     */
     Toolbar toolbar;
+    /**
+     * variable of recyclerView
+     */
     RecyclerView orderItemRecycler;
+    /**
+     * object of OrderAdapter
+     */
     OrderAdapter orderAdapter;
+    /**
+     * Arraylist of Order type
+     */
     final ArrayList<Order> productsList = new ArrayList<>();
+
+    /**
+     * onCreate
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +81,9 @@ public class OrderhistoryActivity extends AppCompatActivity {
         getOrderHistory();
     }
 
+    /**
+     * For getting all old order details from Firestore
+     */
     private void getOrderHistory() {
         db.collection("Users").document(user.getUid()).collection("Orders").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -72,6 +109,10 @@ public class OrderhistoryActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     *
+     * @param productsList
+     */
     private void setProdItemRecycler(ArrayList<Order> productsList) {
         orderItemRecycler = findViewById(R.id.recyclerview_orderHistory);
         RecyclerView.LayoutManager layoutManager= new LinearLayoutManager(this, RecyclerView.VERTICAL, false);

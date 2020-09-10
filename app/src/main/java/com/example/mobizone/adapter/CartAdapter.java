@@ -20,17 +20,45 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+/**
+ * @author Patel Dhruv
+ * @author Gakhar Tanvi
+ * @author Kaur Sarbjit
+ * @author Kaur Kamaljit
+ * @author Varma Akshay
+ * This adapter class is used for Cart.
+ */
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHolder>  {
 
+    /**
+     * Context
+     */
     Context context;
+    /**
+     * Arraylist of Cart type
+     */
     List<Cart> cartList;
-    NavController navController;
+    /**
+     * onClickListener
+     */
     private View.OnClickListener clickListener;
 
+    /**
+     * constructor
+     * @param context
+     * @param cartList
+     */
     public CartAdapter(Context context, List<Cart> cartList) {
         this.context = context;
         this.cartList = cartList;
     }
+
+    /**
+     * onCreateViewHolder of adapter
+     * @param parent
+     * @param viewType
+     * @return
+     */
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,6 +67,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
         return new ProductViewHolder(view);
     }
 
+    /**
+     * onBindViewHolder of adapter
+     * @param holder
+     * @param position
+     */
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull final ProductViewHolder holder, int position) {
@@ -49,16 +82,28 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
         holder.prodPrice.setText("$ "+cartList.get(position).getProductPrice());
 
     }
+
+    /**
+     *
+     * @param onClickListner
+     */
     public void setOnClickListner(View.OnClickListener onClickListner)
     {
         clickListener = onClickListner;
     }
 
+    /**
+     * return size of arrayList
+     * @return
+     */
     @Override
     public int getItemCount() {
         return cartList.size();
     }
 
+    /**
+     * item class
+     */
     public final class ProductViewHolder extends RecyclerView.ViewHolder{
 
         ImageView prodImage;

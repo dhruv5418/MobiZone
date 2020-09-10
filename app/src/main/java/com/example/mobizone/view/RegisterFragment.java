@@ -161,6 +161,10 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+    /**
+     * For checking basic validation of form
+     * @return
+     */
     public  boolean checkEmptyField(){
         if(TextUtils.isEmpty(email)){
             edt_email.setError("Email cannot be blank!");

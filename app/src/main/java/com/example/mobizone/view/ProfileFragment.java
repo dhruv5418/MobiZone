@@ -54,23 +54,57 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 public class ProfileFragment extends Fragment implements View.OnClickListener {
 
+    /**
+     * All relative layouts
+     */
     RelativeLayout rel_pro,rel_pass,rel_signout,rel_feed,rel_order;
+    /**
+     * Object of FirebaseAuth
+     */
     FirebaseAuth auth;
+    /**
+     * Object of FirebaseUser
+     */
     FirebaseUser user;
+    /**
+     * Object of FirebaseFirestore
+     */
     FirebaseFirestore db;
-    String fName,lName,nEmail,email;
+    /**
+     * String for storing Email
+     */
+    String email;
+    /**
+     * Variable of CircleImageView
+     */
     CircleImageView imageView;
+    /**
+     * All textViews variable
+     */
     TextView txt_name,txt_email;
+
+    /**
+     * Constructor
+     */
     public ProfileFragment() {
         // Required empty public constructor
     }
 
+    /**
+     * onCreate
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         auth=FirebaseAuth.getInstance();
     }
 
+    /**
+     * onViewCreated
+     * @param view
+     * @param savedInstanceState
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -94,6 +128,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         loadData();
     }
 
+    /**
+     * For getting data from Firestore
+     */
     private void loadData() {
         user=auth.getCurrentUser();
         if(user!=null){
@@ -115,9 +152,18 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         });
 
     }
+
+    /**
+     *
+     */
     private interface FirestoreCallback{
         void onClickback(DocumentSnapshot documentSnapshot);
     }
+
+    /**
+     *
+     * @param firestoreCallback
+     */
     private void readData(final FirestoreCallback firestoreCallback){
         DocumentReference docref=db.collection("Users").document(user.getUid());
         docref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -133,6 +179,13 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         });
     }
 
+    /**
+     * onCreateView
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -140,6 +193,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 
+    /**
+     * onClick
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         Intent intent;
@@ -184,6 +241,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         });
     }
 
+    /**
+     * onClick listener for profile imageView
+     */
     View.OnClickListener changeProfile=new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -208,6 +268,13 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             builder.show();
         }
     };
+
+    /**
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -235,6 +302,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+    /**
+     * For storing profile image in Firebase Storage
+     * @param bitmap
+     */
     private void handleUpload(Bitmap bitmap) {
         ByteArrayOutputStream baos= new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG,100,baos);
@@ -256,6 +327,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         });
     }
 
+    /**
+     *
+     * @param reference
+     */
     private void getDownloadUrl(StorageReference reference){
         reference.getDownloadUrl()
                 .addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -267,6 +342,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 });
     }
 
+    /**
+     *
+     * @param uri
+     */
     private void setUserProfile(Uri uri){
         UserProfileChangeRequest request=new UserProfileChangeRequest.Builder()
                 .setPhotoUri(uri)
@@ -285,6 +364,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         });
     }
 
+    /**
+     * onResume()
+     */
     @Override
     public void onResume() {
         user=auth.getCurrentUser();
@@ -297,6 +379,5 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         }
         super.onResume();
     }
-
 
 }

@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mobizone.R;
@@ -73,7 +72,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public void onBindViewHolder(@NonNull final ProductViewHolder holder, final int position) {
         Picasso.get().load(productsList.get(position).getImageUrl()).into(holder.prodImage);
         holder.prodName.setText(productsList.get(position).getProductName());
-        holder.prodPrice.setText(productsList.get(position).getProductPrice());
+        holder.prodPrice.setText("$ "+productsList.get(position).getProductPrice());
         holder.prodMemory.setText(productsList.get(position).getMemory());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

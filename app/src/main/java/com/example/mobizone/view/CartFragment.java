@@ -35,28 +35,75 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ *  @author Dhruv Patel
+ *  @author Gakhar Tanvi
+ *  @author Sarbjit Kaur
+ *  @author Kamaljit Kaur
+ *  @author Akshay Varma
+ *  This java class is for cart fragment
+ */
 public class CartFragment extends Fragment {
 
+    /**
+     * object of CartAdapter
+     */
     CartAdapter cartAdapter;
+    /**
+     * Recyclerview variable
+     */
     RecyclerView recyclerView;
+    /**
+     * variable for order button
+     */
     Button btn_order;
+    /**
+     * Object of Firestore
+     */
     FirebaseFirestore db;
+    /**
+     * Object of FirebaseAuth
+     */
     private FirebaseAuth auth;
+    /**
+     * Object of FirebaseUser
+     */
     private FirebaseUser curUser;
+    /**
+     * Arraylist of type Cart
+     */
     final ArrayList<Cart> productsList = new ArrayList<>();
+    /**
+     * Textview
+     */
     TextView total_price;
+    /**
+     * int for saving total price
+     */
     int total=0;
 
+    /**
+     * constructor
+     */
     public CartFragment() {
         // Required empty public constructor
     }
 
 
+    /**
+     * onCreate
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     * onViewCreated
+     * @param view
+     * @param savedInstanceState
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -70,6 +117,9 @@ public class CartFragment extends Fragment {
         generteView();
     }
 
+    /**
+     * Click listener for button
+     */
     View.OnClickListener onClick=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -82,6 +132,9 @@ public class CartFragment extends Fragment {
         }
     };
 
+    /**
+     * generate view for all items in cart by getting data from firestore
+     */
     private void generteView() {
         total=0;
         db.collection("Users").document(curUser.getUid()).collection("Cart").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -112,6 +165,10 @@ public class CartFragment extends Fragment {
 
     }
 
+    /**
+     *
+     * @param cartList
+     */
     private void setCartItemRecycler(List<Cart> cartList) {
         RecyclerView.LayoutManager layoutManager= new LinearLayoutManager(getActivity().getApplicationContext(), RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
@@ -119,6 +176,10 @@ public class CartFragment extends Fragment {
         recyclerView.setAdapter(cartAdapter);
         cartAdapter.setOnClickListner(removeItem);
     }
+
+    /**
+     * onClick listener for remove item button
+     */
     View.OnClickListener removeItem=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -137,6 +198,11 @@ public class CartFragment extends Fragment {
             });
         }
     };
+
+    /**
+     * for empty current Arraylist
+     * @param productsList
+     */
     private void removeitem(List<Cart> productsList) {
         int size = productsList.size();
         if (size > 0) {
@@ -144,6 +210,13 @@ public class CartFragment extends Fragment {
         }
     }
 
+    /**
+     * onCreateView
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

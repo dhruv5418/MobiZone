@@ -2,7 +2,7 @@ package com.example.mobizone.model;
 
 /**
  *  @author Dhruv Patel
- *   @author Gakhar Tanvi
+ *  @author Gakhar Tanvi
  *  @author Sarbjit Kaur
  *  @author Kamaljit Kaur
  *  @author Akshay Varma
@@ -10,17 +10,53 @@ package com.example.mobizone.model;
  */
 public class Products {
 
+    /**
+     * for productId
+     */
     Integer productid;
+    /**
+     * Product Name
+     */
     String productName;
+    /**
+     * Product Price
+     */
     String productPrice;
+    /**
+     * Url of main page image
+     */
     String imageUrl;
+    /**
+     * Url of image for detail page
+     */
     String image_detail;
+    /**
+     * company name
+     */
     String company;
+    /**
+     * battery capacity
+     */
     String battery;
+    /**
+     * Front cam specification
+     */
     String frntCam;
+    /**
+     * Back cam specification
+     */
     String bckCam;
+    /**
+     * memory capacity
+     */
     String memory;
+    /**
+     * Processor name
+     */
     String processor;
+    /**
+     * Operating System
+     */
     String os;
 
     public Products(Integer productid, String productName,  String productPrice, String imageUrl, String image_detail, String company, String battery, String frntCam, String bckCam, String memory, String processor, String os) {

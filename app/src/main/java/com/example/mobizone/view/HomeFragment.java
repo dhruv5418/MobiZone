@@ -28,7 +28,9 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Patel Dhruv
@@ -41,13 +43,37 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
 
+    /**
+     * object of ProductCategoryAdapter
+     */
     ProductCategoryAdapter productCategoryAdapter;
+    /**
+     * Variables for recyclerView
+     */
     RecyclerView productCatRecycler, prodItemRecycler;
+    /**
+     * object of ProductAdapter
+     */
     ProductAdapter productAdapter;
+    /**
+     * Object of Firestore
+     */
     FirebaseFirestore db;
+    /**
+     * Object of FirebaseAuth
+     */
     FirebaseAuth auth;
+    /**
+     * Arraylist of Products type
+     */
     List<Products> productsList = new ArrayList<>();
+    /**
+     * Arraylist of ProductCategory
+     */
     List<ProductCategory> productCategoryList = new ArrayList<>();
+    /**
+     * ImageView Variable
+     */
     ImageView imageView;
 
     /**
@@ -97,6 +123,9 @@ public class HomeFragment extends Fragment {
         getCategory();
         getAllProducts();
     }
+
+
+
     View.OnClickListener removeFilter=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -105,6 +134,9 @@ public class HomeFragment extends Fragment {
         }
     };
 
+    /**
+     * For getting product details
+     */
     private void getAllProducts() {
         db.collection("Products")
                 .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -132,6 +164,22 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+
+    /**
+     * for adding product into list
+     * @param id
+     * @param name
+     * @param company
+     * @param memory
+     * @param price
+     * @param image
+     * @param image_detail
+     * @param processor
+     * @param battery
+     * @param frntCam
+     * @param bckCam
+     * @param os
+     */
     private void getItem(final int id, final String name, final String company, final String memory, final String price, final String image, final String image_detail, final String processor, final String battery, final String frntCam, final String bckCam, final String os) {
 
 
@@ -139,6 +187,9 @@ public class HomeFragment extends Fragment {
         setProdItemRecycler(productsList);
     }
 
+    /**
+     * For getting Category details
+     */
     private void getCategory() {
         db.collection("Category")
                 .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -155,10 +206,19 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    /**
+     *
+     * @param id
+     * @param company
+     */
     private void addCategory(int id, String company) {
         productCategoryList.add(new ProductCategory(id, company));
         setProductCategoryRecycler(productCategoryList);
     }
+
+    /**
+     * @param productCategoryList
+     */
     private void setProductCategoryRecycler(List<ProductCategory> productCategoryList){
         RecyclerView.LayoutManager layoutManager= new LinearLayoutManager(getActivity().getApplicationContext()
                 , RecyclerView.HORIZONTAL, false);
@@ -167,6 +227,10 @@ public class HomeFragment extends Fragment {
         productCatRecycler.setAdapter(productCategoryAdapter);
         productCategoryAdapter.setOnClickListner(onClickCategory);
     }
+
+    /**
+     *
+     */
     View.OnClickListener onClickCategory=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -214,6 +278,10 @@ public class HomeFragment extends Fragment {
     }
 
 
+    /**
+     *
+     * @param productsList
+     */
     private void setProdItemRecycler(List<Products> productsList){
 
 
@@ -223,6 +291,11 @@ public class HomeFragment extends Fragment {
         prodItemRecycler.setAdapter(productAdapter);
 
     }
+
+    /**
+     *
+     * @param productsList
+     */
     private void removeitem(List<Products> productsList) {
         int size = productsList.size();
         if (size > 0) {
@@ -231,4 +304,8 @@ public class HomeFragment extends Fragment {
             }
         }
     }
+
+
+
+
 }

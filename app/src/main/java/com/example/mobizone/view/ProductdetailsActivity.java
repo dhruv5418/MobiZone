@@ -27,16 +27,53 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Patel Dhruv
+ * @author Gakhar Tanvi
+ * @author Sarbjit Kaur
+ * @author Kamaljit Kaur
+ * @author Akshay Varma
+ * this java class is for Productdetails activity
+ */
 public class ProductdetailsActivity extends AppCompatActivity implements View.OnClickListener {
 
+    /**
+     * Vaariable of add to cart button
+     */
     Button btn_addCart;
+    /**
+     * variable of spinner
+     */
     Spinner spinner;
+    /**
+     * variable of imageView
+     */
     ImageView img_backDetails,img_product;
+    /**
+     * variable of TextView
+     */
     TextView name,company,price,memory,battery,processor,frnt,bck,os;
+    /**
+     * Object of FirebaseAuth
+     */
     FirebaseAuth auth;
+    /**
+     * Object of FirebaseFirestore
+     */
     FirebaseFirestore db;
+    /**
+     * All required strings
+     */
     String Pname,Pprice,Pqunt,Pimage;
+    /**
+     * integer foe Id
+     */
     int Pid;
+
+    /**
+     * onCreate
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +98,10 @@ public class ProductdetailsActivity extends AppCompatActivity implements View.On
         setSpinner();
         btn_addCart.setOnClickListener(this);
     }
+
+    /**
+     * For saving product details
+     */
     private void showData() {
 
         final Bundle b = getIntent().getExtras();
@@ -82,6 +123,9 @@ public class ProductdetailsActivity extends AppCompatActivity implements View.On
     }
 
 
+    /**
+     *
+     */
     private void setSpinner() {
         List<Integer> categories = new ArrayList<>();
         for (int i=1;i<=10;i++){
@@ -92,6 +136,10 @@ public class ProductdetailsActivity extends AppCompatActivity implements View.On
         spinner.setAdapter(dataAdapter);
     }
 
+    /**
+     *
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -106,6 +154,9 @@ public class ProductdetailsActivity extends AppCompatActivity implements View.On
 
     }
 
+    /**
+     * For adding product into cart
+     */
     private void addCart() {
         FirebaseUser user=auth.getCurrentUser();
         Date date = new Date();
